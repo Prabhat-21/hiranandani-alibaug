@@ -38,7 +38,6 @@ const StickyEnquiryForm = () => {
     setPhoneError('');
 
     try {
-      // Import customerService only if it exists
       const { customerService } = await import('../lib/supabase').catch(() => ({ customerService: null }));
       
       if (customerService) {
@@ -48,16 +47,16 @@ const StickyEnquiryForm = () => {
           await customerService.updateCustomer(existingCustomer.id, {
             name: currentName,
             source: 'sticky_form',
-            interest_type: 'site_visit',
-            notes: 'Enquiry from sticky sidebar form'
+            interest_type: 'eoi_registration',
+            notes: 'EOI enquiry from sticky sidebar form'
           });
         } else {
           await customerService.createCustomer({
             name: currentName,
             phone: currentPhone,
             source: 'sticky_form',
-            interest_type: 'site_visit',
-            notes: 'Enquiry from sticky sidebar form'
+            interest_type: 'eoi_registration',
+            notes: 'EOI enquiry from sticky sidebar form'
           });
         }
       }
@@ -75,7 +74,6 @@ const StickyEnquiryForm = () => {
       }, 1000);
     } catch (error) {
       console.error('Error submitting form:', error);
-      // Still redirect on error to avoid blocking the user
       setSubmitMessage('Thank you! Redirecting...');
       setTimeout(() => {
         window.location.href = '/thank-you';
@@ -110,49 +108,54 @@ const StickyEnquiryForm = () => {
   }, []);
 
   return (
-    <div className="w-full h-full bg-white shadow-2xl border-l border-gray-200 flex flex-col">
-      <div className="flex-1 flex flex-col p-5 overflow-y-auto">
-        {/* Header - More compact for desktop */}
+    <div className="w-full h-full bg-white shadow-2xl flex flex-col">
+      <div className="flex-1 flex flex-col p-5">
+        {/* Header */}
         <div className="text-center mb-3">
-          <p className="text-blue-600 font-semibold text-xs mb-1">New Launch</p>
-          <h2 className="text-xl font-bold text-gray-800 mb-1">Godrej Sanpada</h2>
-          <p className="text-xs text-gray-600 mb-1">At Sanpada, Navi Mumbai</p>
-          <p className="text-xs text-gray-600">By Godrej Properties</p>
+          <p className="text-blue-600 font-semibold text-xs mb-1">EOI Open</p>
+          <h2 className="text-xl font-bold text-gray-800 mb-1">Hiranandani Sands</h2>
+          <p className="text-xs text-gray-600 mb-1">At Nagaon, Alibaug</p>
+          <p className="text-xs text-gray-600">By Hiranandani Communities</p>
         </div>
 
-        {/* EOI Benefits Box with Animation - Updated with Sea-Facing */}
+        {/* EOI Benefits Box */}
         <div className="bg-gradient-to-r from-blue-50 to-indigo-50 border-2 border-dashed border-blue-300 rounded-lg p-2 mb-3 animate-glow-pulse">
           <div className="space-y-1">
             <div className="flex items-center justify-center opacity-0 animate-slide-bounce" style={{ animationDelay: '0.2s' }}>
-              <span className="text-blue-600 font-semibold text-xs">🏗️ 2 Towers • G+35 Storeys</span>
+              <span className="text-blue-600 font-semibold text-xs">🏗️ 250 Acres Township • 3 Towers</span>
             </div>
             <div className="flex items-center justify-center opacity-0 animate-slide-bounce" style={{ animationDelay: '0.4s' }}>
-              <span className="text-blue-600 font-semibold text-xs">🌊 Sea-Facing Premium Towers</span>
+              <span className="text-blue-600 font-semibold text-xs">🛥️ 1 Km Private Jetty</span>
             </div>
             <div className="flex items-center justify-center opacity-0 animate-slide-bounce" style={{ animationDelay: '0.6s' }}>
-              <span className="text-blue-600 font-semibold text-xs">🏡 Spacious Deck Homes</span>
+              <span className="text-blue-600 font-semibold text-xs">🏛️ Greek Architecture</span>
             </div>
             <div className="flex items-center justify-center opacity-0 animate-slide-bounce" style={{ animationDelay: '0.8s' }}>
-              <span className="text-blue-600 font-semibold text-xs">🌿 70% Open Green Spaces</span>
+              <span className="text-blue-600 font-semibold text-xs">🌿 100 Acres Wetland Garden</span>
             </div>
             <div className="flex items-center justify-center opacity-0 animate-slide-bounce" style={{ animationDelay: '1s' }}>
-              <span className="text-blue-600 font-semibold text-xs">🏖️ Palm Beach Road Location</span>
+              <span className="text-blue-600 font-semibold text-xs">🏖️ Close to Alibaug Beach</span>
             </div>
           </div>
         </div>
 
         {/* Pricing Info */}
         <div className="text-center mb-3">
-          <p className="text-gray-700 text-xs mb-1">Luxurious 2 & 3 BHK Starting At</p>
+          <p className="text-gray-700 text-xs mb-1">1, 2, 3 BHK & Studio Starting At</p>
           <div className="text-xl font-bold text-gray-800">
-            <span className="text-blue-600">Rs. 3.5 Cr*</span>
-            <span className="text-sm ml-1">Onwards</span>
+            <span className="text-blue-600">₹75 Lac*</span>
+            <span className="text-sm ml-1">All Incl</span>
           </div>
+        </div>
+
+        {/* EOI Alert */}
+        <div className="bg-red-50 border border-red-200 rounded-lg p-2 mb-3">
+          <p className="text-red-600 font-semibold text-xs text-center">EOI Closes on 21st Sept</p>
         </div>
 
         {/* Form Title */}
         <div className="bg-blue-50 rounded-lg p-2 mb-3">
-          <h3 className="font-semibold text-gray-800 text-sm text-center">Pre-Register for Best Offers</h3>
+          <h3 className="font-semibold text-gray-800 text-sm text-center">Register EOI for Best Offers</h3>
         </div>
 
         {/* Form */}
@@ -160,25 +163,6 @@ const StickyEnquiryForm = () => {
           <div>
             <label className="block text-xs font-medium text-gray-700 mb-1">
               Name *
-            </label>
-            <div className="relative">
-              <input
-                ref={nameInputRef}
-                type="text"
-                name="name"
-                onChange={handleChange}
-                required
-                placeholder="Enter your name"
-                className="w-full pl-8 pr-3 py-2 text-sm border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-                style={{ fontSize: '14px' }}
-              />
-              <User className="absolute left-2.5 top-1/2 transform -translate-y-1/2 w-3 h-3 text-gray-400" />
-            </div>
-          </div>
-
-          <div>
-            <label className="block text-xs font-medium text-gray-700 mb-1">
-              Phone Number *
             </label>
             <div className="relative">
               <input
@@ -218,42 +202,42 @@ const StickyEnquiryForm = () => {
             disabled={isSubmitting}
             className="w-full bg-yellow-500 hover:bg-yellow-600 disabled:bg-yellow-400 text-black font-bold py-2 rounded-lg transition-colors text-sm"
           >
-            {isSubmitting ? 'Submitting...' : 'Pre-Register Now'}
+            {isSubmitting ? 'Submitting...' : 'Register EOI Now'}
           </button>
         </form>
 
-        {/* Features - Compact */}
-        <div className="mt-3 pt-3 border-t">
-          <h4 className="font-semibold text-gray-800 mb-2 text-xs">Why Choose Godrej Sanpada?</h4>
+        {/* Features */}
+        <div className="mt-3">
+          <h4 className="font-semibold text-gray-800 mb-2 text-xs">Why Choose Hiranandani Sands?</h4>
           <ul className="space-y-1 text-xs text-gray-600">
             <li className="flex items-start">
               <span className="text-blue-600 mr-1">✓</span>
-              Just off Palm Beach Road, Sanpada
+              250 Acres Premium Township
             </li>
             <li className="flex items-start">
               <span className="text-blue-600 mr-1">✓</span>
-              100+ Curated Premium Amenities
+              1 Km Private Jetty Access
             </li>
             <li className="flex items-start">
               <span className="text-blue-600 mr-1">✓</span>
-              2.2 km from Sanpada Railway Station
+              90,000 Sq.ft Mega Clubhouse
             </li>
             <li className="flex items-start">
               <span className="text-blue-600 mr-1">✓</span>
-              25 mins from Navi Mumbai Airport
+              25 mins to South Mumbai via Jetty
             </li>
           </ul>
         </div>
 
-        {/* Contact Info - Compact */}
-        <div className="mt-auto pt-3 border-t text-center">
+        {/* Contact Info */}
+        <div className="mt-auto text-center">
           <p className="text-xs text-gray-600 mb-1">Need immediate assistance?</p>
           <a href="tel:+919702978506" className="text-blue-600 font-semibold text-sm hover:text-blue-700">
             📞 +91 97029 78506
           </a>
         </div>
 
-        {/* Consent - Compact */}
+        {/* Consent */}
         <div className="mt-2 text-xs text-gray-500">
           <label className="flex items-start">
             <input
@@ -273,3 +257,21 @@ const StickyEnquiryForm = () => {
 };
 
 export default StickyEnquiryForm;
+                ref={nameInputRef}
+                type="text"
+                name="name"
+                onChange={handleChange}
+                required
+                placeholder="Enter your name"
+                className="w-full pl-8 pr-3 py-2 text-sm border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                style={{ fontSize: '14px' }}
+              />
+              <User className="absolute left-2.5 top-1/2 transform -translate-y-1/2 w-3 h-3 text-gray-400" />
+            </div>
+          </div>
+
+          <div>
+            <label className="block text-xs font-medium text-gray-700 mb-1">
+              Phone Number *
+            </label>
+            <div className="relative">
