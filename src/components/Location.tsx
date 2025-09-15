@@ -6,39 +6,41 @@ const Location = () => {
 
   const locationData = {
     connectivity: [
-      'Sanpada Railway Station - 2 mins drive',
-      'Vashi Railway Station - 5 mins drive',
-      'Palm Beach Road - 1 min drive',
-      'Sion-Panvel Highway - 8 mins drive',
-      'Mumbai Trans Harbour Link (MTHL / Atal Setu) - 20 mins drive',
-      'Navi Mumbai International Airport (Upcoming) - 25 mins drive'
+      'Nagao Beach - 5 mins drive',
+      'Mandwa Jetty - 15 mins drive',
+      'Revdananda Jetty - 15 mins drive',
+      'Colaba Jetty - 20 mins drive',
+      'South Mumbai - 25 mins drive via Jetty',
+      'Alibaug Beach - 25 mins drive',
+      'Gate Way of India - 40 mins drive',
+      'Mandwa Beach - 45 mins drive',
+      'Navi Mumbai Airport - 2 hrs drive'
     ],
     shopping: [
-      'Inorbit Mall Vashi - 6 mins drive',
-      'Raghuleela Mall - 5 mins drive',
-      'Sagar Vihar - 7 mins drive',
-      'Rock Garden Nerul - 10 mins drive'
+      'Alibaug Market - 25 mins drive',
+      'Mandwa Local Market - 15 mins drive',
+      'Colaba Causeway - 40 mins via Jetty',
+      'Local Beach Shacks - 5 mins walk'
     ],
     education: [
-      'St. Mary\'s Multipurpose High School - 3 mins drive',
-      'Fr. Agnel School & Junior College - 5 mins drive',
-      'Ryan International School, Sanpada - 7 mins drive',
-      'IES Navi Mumbai High School - 8 mins drive',
-      'Karmaveer Bhaurao Patil College - 6 mins drive'
+      'Alibaug Public School - 20 mins drive',
+      'St. Mary\'s School Alibaug - 25 mins drive',
+      'Local Primary Schools - 10 mins drive',
+      'International Schools Mumbai - 45 mins via Jetty'
     ],
     hospitals: [
-      'MGM Hospital Vashi - 7 mins drive',
-      'Fortis Hiranandani Hospital - 10 mins drive',
-      'Dr. D Y Patil Hospital Nerul - 15 mins drive',
-      'Advanced Eye Hospital & Institute - 5 mins drive'
+      'Alibaug Civil Hospital - 25 mins drive',
+      'Mandwa Medical Center - 15 mins drive',
+      'Private Clinics Alibaug - 20 mins drive',
+      'Mumbai Hospitals - 45 mins via Jetty'
     ]
   };
 
   const accordionItems = [
     { key: 'connectivity', title: 'Connectivity', icon: Signal, data: locationData.connectivity },
-    { key: 'shopping', title: 'Malls & Landmarks', icon: ShoppingCart, data: locationData.shopping },
-    { key: 'education', title: 'Schools & Colleges', icon: GraduationCap, data: locationData.education },
-    { key: 'hospitals', title: 'Hospitals', icon: Building2, data: locationData.hospitals }
+    { key: 'shopping', title: 'Shopping & Markets', icon: ShoppingCart, data: locationData.shopping },
+    { key: 'education', title: 'Schools & Education', icon: GraduationCap, data: locationData.education },
+    { key: 'hospitals', title: 'Healthcare', icon: Building2, data: locationData.hospitals }
   ];
 
   useEffect(() => {
@@ -51,7 +53,7 @@ const Location = () => {
   return (
     <section id="connectivity" className="py-12 lg:py-20 bg-gray-50 text-center">
       <div className="container mx-auto px-4">
-        <h2 className="text-4xl lg:text-5xl font-bold text-black mb-6 lg:mb-8">Godrej Sanpada Location Advantage</h2>
+        <h2 className="text-4xl lg:text-5xl font-bold text-black mb-6 lg:mb-8">Hiranandani Sands Location Advantage</h2>
 
         <div className="max-w-4xl lg:max-w-6xl mx-auto">
           <div className="space-y-4 lg:space-y-6">
