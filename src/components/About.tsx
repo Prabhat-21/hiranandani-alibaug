@@ -10,11 +10,13 @@ const About = () => {
         <div className="bg-white rounded-2xl p-6 lg:p-8 shadow-lg mb-6 lg:mb-6 text-center max-w-6xl mx-auto">
           <div className="max-h-64 lg:max-h-72 overflow-y-auto pr-4 lg:pr-0 text-gray-700 leading-relaxed lg:leading-loose text-base lg:text-lg">
             <p className="mb-6">
-              Godrej Sanpada is the latest ultra-premium offering by Godrej Properties, located in the heart of Sanpada, Navi Mumbai. Spread across 4.5 acres with 3 luxurious residential towers, this under-construction development offers a fine blend of location, connectivity, and lifestyle.
-
+              Hiranandani Sands is the latest premium offering by Hiranandani Communities, located in the serene coastal town of Nagaon, Alibaug. Spread across 250 acres with 3 luxurious residential towers, this under-construction development offers a perfect blend of location, connectivity, and coastal lifestyle.
             </p>
             <p className="mb-6">
-              Each home comes with a private deck and elegant finishes, designed for families who value both space and comfort. With limited-period launch offers and a 25:75 payment plan, this is the ideal time to invest in Sanpada’s most awaited landmark.
+              Each home comes with iconic Greek architecture and elegant finishes, designed for families who value both space and comfort. With limited-period EOI offers starting from ₹3 Lacs and EOI window closing on 21st Sept, this is the ideal time to invest in Alibaug's most awaited landmark.
+            </p>
+            <p className="mb-6">
+              The project features 100 Acres Wetland & Biodiversity Garden, 90,000 Sq.ft Mega Clubhouse, and 1 Km Private Jetty providing direct connectivity to South Mumbai in just 25 minutes.
             </p>
           </div>
         </div>
