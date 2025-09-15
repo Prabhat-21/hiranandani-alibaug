@@ -5,10 +5,10 @@ const TextCarousel = () => {
   const [currentSlide, setCurrentSlide] = React.useState(0);
   
   const messages = [
-    "An investment with perfect blend of luxury, location, and long-term value in Sanpada",
-    "A grand clubhouse (25,000 sqft) for social events and leisure activities", 
-    "100 steps from Nexus Mall, Seawoods Station & Palm Beach Rd",
-    "20 mins from upcoming Navi Mumbai International Airport"
+    "A perfect investment combining luxury, prime location & high appreciation potential",
+    "100 Acres Wetland & Biodiversity Garden for natural living", 
+    "90,000 Sq.ft Mega Clubhouse for social events and leisure activities",
+    "1 Km Private Jetty with direct access to Mumbai"
   ];
 
   React.useEffect(() => {
@@ -20,8 +20,8 @@ const TextCarousel = () => {
   }, [messages.length]);
 
   return (
-    <div className="mb-6">
-      <div className="text-center mb-4 min-h-[3rem] flex items-center justify-center">
+    <div className="mb-4">
+      <div className="text-center mb-3 min-h-[2.5rem] flex items-center justify-center">
         <p className="text-white text-sm md:text-base transition-opacity duration-500">
           {messages[currentSlide]}
         </p>
@@ -86,7 +86,6 @@ const Hero = () => {
     setPhoneError('');
 
     try {
-      // Import customerService only if it exists
       const { customerService } = await import('../lib/supabase').catch(() => ({ customerService: null }));
       
       if (customerService) {
@@ -96,21 +95,21 @@ const Hero = () => {
           await customerService.updateCustomer(existingCustomer.id, {
             name: currentName,
             source: 'hero_form',
-            interest_type: 'pre_registration',
-            notes: 'Pre-registered from hero section'
+            interest_type: 'eoi_registration',
+            notes: 'EOI registered from hero section'
           });
         } else {
           await customerService.createCustomer({
             name: currentName,
             phone: currentPhone,
             source: 'hero_form',
-            interest_type: 'pre_registration',
-            notes: 'Pre-registered from hero section'
+            interest_type: 'eoi_registration',
+            notes: 'EOI registered from hero section'
           });
         }
       }
       
-      setSubmitMessage('Thank you for your registration! Redirecting...');
+      setSubmitMessage('Thank you for your EOI registration! Redirecting...');
       
       formDataRef.current = { name: '', phone: '' };
       if (nameInputRef.current) nameInputRef.current.value = '';
@@ -123,7 +122,6 @@ const Hero = () => {
       }, 1000);
     } catch (error) {
       console.error('Error submitting form:', error);
-      // Still redirect on error to avoid blocking
       setSubmitMessage('Thank you! Redirecting...');
       setTimeout(() => {
         window.location.href = '/thank-you';
@@ -161,43 +159,42 @@ const Hero = () => {
     <section id="home" className="relative">
       {/* Mobile Layout Only - Hero section for mobile */}
       <div className="lg:hidden bg-gradient-to-br from-blue-900 via-blue-800 to-blue-700 text-white">
-        <div className="absolute inset-0 bg-black opacity-20"></div>
-        <div className="relative container mx-auto px-4 py-6 md:py-12">
+        <div className="relative container mx-auto px-4 py-4 md:py-6">
           {/* Main Content Card */}
-          <div className="bg-white text-gray-800 rounded-2xl p-4 md:p-6 shadow-2xl mb-6">
+          <div className="bg-white text-gray-800 rounded-2xl p-4 md:p-6 shadow-2xl mb-3">
             <div className="text-center mb-3">
-              <p className="text-blue-600 font-semibold text-sm md:text-base mb-1">New Launch</p>
+              <p className="text-blue-600 font-semibold text-sm md:text-base mb-1">EOI Open</p>
               <h1 className="text-2xl md:text-3xl font-bold mb-1 text-gray-800">
-                Godrej New Launch
+                Hiranandani Sands
               </h1>
-              <p className="text-gray-600 text-sm md:text-base mb-1">At Sanpada, Navi Mumbai</p>
-              <p className="text-gray-600 text-sm md:text-base mb-2">By Godrej Properties</p>
+              <p className="text-gray-600 text-sm md:text-base mb-1">At Nagaon, Alibaug</p>
+              <p className="text-gray-600 text-sm md:text-base mb-2">By Hiranandani Communities</p>
 
-              {/* EOI Benefits Box - All 5 points with Sea-Facing */}
+              {/* EOI Benefits Box */}
               <div className="bg-gradient-to-r from-blue-50 to-indigo-50 border-2 border-dashed border-blue-300 rounded-lg p-2 md:p-3 mb-2 animate-glow-pulse">
                 <div className="flex items-center justify-center mb-1 opacity-0 animate-slide-bounce" style={{ animationDelay: '0.2s' }}>
-                  <span className="text-blue-600 font-semibold text-xs md:text-sm">🏗️ 2 Towers • G+35 Storeys</span>
+                  <span className="text-blue-600 font-semibold text-xs md:text-sm">🏗️ 250 Acres Township • 3 Towers</span>
                 </div>
                 <div className="flex items-center justify-center mb-1 opacity-0 animate-slide-bounce" style={{ animationDelay: '0.4s' }}>
-                  <span className="text-blue-600 font-semibold text-xs md:text-sm">🌊 Sea-Facing Premium Towers</span>
+                  <span className="text-blue-600 font-semibold text-xs md:text-sm">🛥️ 1 Km Private Jetty</span>
                 </div>
                 <div className="flex items-center justify-center mb-1 opacity-0 animate-slide-bounce" style={{ animationDelay: '0.6s' }}>
-                  <span className="text-blue-600 font-semibold text-xs md:text-sm">🏡 Spacious Deck Homes</span>
+                  <span className="text-blue-600 font-semibold text-xs md:text-sm">🏛️ Iconic Greek Architecture</span>
                 </div>
                 <div className="flex items-center justify-center mb-1 opacity-0 animate-slide-bounce" style={{ animationDelay: '0.8s' }}>
-                  <span className="text-blue-600 font-semibold text-xs md:text-sm">🌿 70% Open Green Spaces</span>
+                  <span className="text-blue-600 font-semibold text-xs md:text-sm">🌿 100 Acres Wetland Garden</span>
                 </div>
                 <div className="flex items-center justify-center opacity-0 animate-slide-bounce" style={{ animationDelay: '1.0s' }}>
-                  <span className="text-blue-600 font-semibold text-xs md:text-sm">🏖️ Palm Beach Road Location</span>
+                  <span className="text-blue-600 font-semibold text-xs md:text-sm">🏖️ Close to Alibaug Beach</span>
                 </div>
               </div>
               
               <p className="text-gray-700 text-base md:text-lg mb-1 opacity-0 animate-fade-up" style={{ animationDelay: '1.2s' }}>
-                Luxurious 2 & 3 BHK Starting At
+                1, 2, 3 BHK & Studio Starting At
               </p>
               <div className="text-2xl md:text-3xl font-bold mb-2 text-gray-800 opacity-0 animate-fade-up" style={{ animationDelay: '1.4s' }}>
-                <span className="text-blue-600">Rs. 3.5 Cr*</span>
-                <span className="text-base md:text-lg ml-1">Onwards</span>
+                <span className="text-blue-600">₹75 Lac*</span>
+                <span className="text-base md:text-lg ml-1">All Incl</span>
               </div>
               
               <button
@@ -205,14 +202,15 @@ const Hero = () => {
                 className="w-full bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white font-bold py-3 px-4 rounded-lg transition-all duration-300 text-base transform hover:scale-105 hover:shadow-lg opacity-0 animate-fade-up"
                 style={{ animationDelay: '1.6s' }}
               >
-                Check Full Price Break Up
+                Check EOI Details
               </button>
             </div>
           </div>
           
-          {/* Mobile Pre-Register Form */}
+          {/* Mobile EOI Registration Form */}
           <div id="hero-form" className="bg-white bg-opacity-10 backdrop-blur-sm rounded-2xl p-4 md:p-5">
-            <h3 className="text-xl md:text-2xl font-bold mb-3 text-center">Pre-Register here for Best Offers</h3>
+            <h3 className="text-xl md:text-2xl font-bold mb-3 text-center">Register EOI for Best Offers</h3>
+            <p className="text-center text-sm mb-3 text-blue-100">EOI Window Closes on 21st Sept</p>
             
             <TextCarousel />
             
@@ -225,10 +223,6 @@ const Hero = () => {
                   onChange={handleChange}
                   required
                   autoComplete="name"
-                  inputMode="text"
-                  autoCapitalize="words"
-                  autoCorrect="off"
-                  spellCheck="false"
                   key="hero-name"
                   placeholder="Enter Your Name here..."
                   className="w-full px-4 py-3 rounded-lg bg-white bg-opacity-20 border border-white border-opacity-30 placeholder-white placeholder-opacity-70 text-white focus:outline-none focus:ring-2 focus:ring-yellow-400 text-base"
@@ -244,10 +238,6 @@ const Hero = () => {
                   onBlur={handlePhoneBlur}
                   required
                   autoComplete="tel"
-                  inputMode="tel"
-                  autoCapitalize="none"
-                  autoCorrect="off"
-                  spellCheck="false"
                   key="hero-phone"
                   placeholder="Enter Your Phone Number here..."
                   className={`w-full px-4 py-3 rounded-lg bg-white bg-opacity-20 border placeholder-white placeholder-opacity-70 text-white focus:outline-none focus:ring-2 text-base ${
@@ -280,7 +270,7 @@ const Hero = () => {
                 disabled={isSubmitting}
                 className="w-full bg-yellow-500 hover:bg-yellow-600 disabled:bg-yellow-400 disabled:cursor-not-allowed text-black font-bold py-3 px-4 rounded-lg transition-colors text-base"
               >
-                {isSubmitting ? 'Submitting...' : 'Pre-Register Now'}
+                {isSubmitting ? 'Submitting...' : 'Register EOI Now'}
               </button>
             </form>
             
