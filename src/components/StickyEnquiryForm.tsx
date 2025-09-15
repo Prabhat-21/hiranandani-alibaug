@@ -166,6 +166,25 @@ const StickyEnquiryForm = () => {
             </label>
             <div className="relative">
               <input
+                ref={nameInputRef}
+                type="text"
+                name="name"
+                onChange={handleChange}
+                required
+                placeholder="Enter your name"
+                className="w-full pl-8 pr-3 py-2 text-sm border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                style={{ fontSize: '14px' }}
+              />
+              <User className="absolute left-2.5 top-1/2 transform -translate-y-1/2 w-3 h-3 text-gray-400" />
+            </div>
+          </div>
+
+          <div>
+            <label className="block text-xs font-medium text-gray-700 mb-1">
+              Phone Number *
+            </label>
+            <div className="relative">
+              <input
                 ref={phoneInputRef}
                 type="tel"
                 name="phone"
@@ -257,21 +276,3 @@ const StickyEnquiryForm = () => {
 };
 
 export default StickyEnquiryForm;
-                ref={nameInputRef}
-                type="text"
-                name="name"
-                onChange={handleChange}
-                required
-                placeholder="Enter your name"
-                className="w-full pl-8 pr-3 py-2 text-sm border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-                style={{ fontSize: '14px' }}
-              />
-              <User className="absolute left-2.5 top-1/2 transform -translate-y-1/2 w-3 h-3 text-gray-400" />
-            </div>
-          </div>
-
-          <div>
-            <label className="block text-xs font-medium text-gray-700 mb-1">
-              Phone Number *
-            </label>
-            <div className="relative">
