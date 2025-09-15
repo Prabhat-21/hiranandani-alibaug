@@ -4,7 +4,6 @@ import { customerService } from '../lib/supabase';
 import { cleanPhoneNumber, formatPhoneDisplay, validatePhoneNumber, validatePhoneOnSubmit } from '../phone_validation';
 
 const Contact = () => {
-  // Form state management (for mobile only)
   const formDataRef = React.useRef({
     name: '',
     phone: '',
@@ -115,8 +114,8 @@ const Contact = () => {
               <div className="bg-white rounded-2xl shadow-2xl overflow-hidden">
                 <div className="relative flex justify-center mt-2 md:mt-4">
                   <img
-                      src="/img/comman/logo.webp"
-                      alt="Godrej Properties"
+                      src="/img/header_logo/logo.svg"
+                      alt="Hiranandani Communities"
                       className="w-auto h-4 md:h-6 object-cover"
                   />
                 </div>
@@ -204,27 +203,18 @@ const Contact = () => {
 
           {/* Desktop Layout - Compact RERA Section Only */}
           <div className="hidden lg:block">
-            {/* Compact Developer Branding Section */}
             <div className="bg-white rounded-xl p-6 shadow-lg">
               <div className="flex items-center justify-center space-x-6 mb-3">
-                <img src="/img/comman/logo.webp" alt="Godrej Properties Logo" className="h-6 w-auto" />
+                <img src="/img/header_logo/logo.svg" alt="Hiranandani Communities Logo" className="h-6 w-auto" />
               </div>
 
               <p className="text-gray-600 text-sm mb-3 text-center">
-                Godrej Properties • NEW LAUNCH • SANPADA
+                Hiranandani Communities • EOI OPEN • NAGAON, ALIBAUG
               </p>
 
               <div className="text-xs text-gray-600 mb-4 text-center">
-                <p>
-                  Project MahaRERA No. – PM1330002500429
-                </p>
-              </div>
-
-              {/* Single QR Code */}
-              <div className="flex justify-center mb-4">
-                <div className="bg-gray-200 w-24 h-24 rounded-lg flex items-center justify-center">
-                  <img src="/img/qr.webp" alt="RERA QR Code" className="w-20 h-20" />
-                </div>
+                <p>Project MahaRERA No. — Under Process</p>
+                <p className="text-red-600 font-semibold mt-1">EOI Window Closes on 21st Sept</p>
               </div>
 
               <div className="text-xs text-gray-500 text-center mb-3">
@@ -249,24 +239,16 @@ const Contact = () => {
           <div className="lg:hidden mt-8">
             <div className="bg-white rounded-2xl p-6 shadow-lg">
               <div className="flex flex-col md:flex-row items-center justify-center space-y-4 md:space-y-0 md:space-x-8 mb-4">
-                <img src="/img/comman/logo.webp" alt="Godrej Properties Logo" className="h-6 w-auto" />
+                <img src="/img/header_logo/logo.svg" alt="Hiranandani Communities Logo" className="h-6 w-auto" />
               </div>
 
               <p className="text-gray-600 text-sm mb-4 text-center">
-                Godrej Properties • NEW LAUNCH • SANPADA
+                Hiranandani Communities • EOI OPEN • NAGAON, ALIBAUG
               </p>
 
               <div className="text-xs text-gray-600 mb-6 text-center">
-                <p>
-                  Project MahaRERA No. – PM1330002500429
-                </p>
-              </div>
-
-              {/* Single QR Code for Mobile */}
-              <div className="flex justify-center mb-6">
-                <div className="bg-gray-200 w-24 h-24 rounded-lg flex items-center justify-center">
-                  <img src="/img/qr.webp" alt="RERA QR Code" className="w-20 h-20" />
-                </div>
+                <p>Project MahaRERA No. — Under Process</p>
+                <p className="text-red-600 font-semibold mt-1">EOI Window Closes on 21st Sept</p>
               </div>
 
               <div className="text-xs text-gray-500 mb-4 text-center">
