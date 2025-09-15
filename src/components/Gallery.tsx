@@ -6,21 +6,21 @@ const Gallery = () => {
   const [isTransitioning, setIsTransitioning] = useState(false);
 
   const galleryImages = [
-    '/img/ammenties/1.jpg',
-    '/img/ammenties/2.jpg',
-    '/img/ammenties/3.jpg',
-    '/img/ammenties/4.jpg',
-    '/img/ammenties/5.jpg',
-    '/img/ammenties/6.webp',
-    '/img/ammenties/7.webp',
-    '/img/ammenties/8.webp',
+    '/img/gallery_images/gallery_1.webp',
+    '/img/gallery_images/gallery_2.webp',
+    '/img/gallery_images/gallery_3.webp',
+    '/img/gallery_images/gallery_4.webp',
+    '/img/gallery_images/gallery_5.webp',
+    '/img/gallery_images/bedroom.webp',
+    '/img/gallery_images/living_room.webp',
+    '/img/amenities_images/gym.webp',
   ];
 
   // Auto-slide functionality
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentSlide((prev) => (prev + 1) % galleryImages.length);
-    }, 4000); // 4 seconds per slide
+    }, 4000);
 
     return () => clearInterval(interval);
   }, [galleryImages.length]);
